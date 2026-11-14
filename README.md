@@ -2,7 +2,7 @@
 
 A small Databento-style price adaptor: one WebSocket server that streams normalized tick data from crypto exchanges via [ccxt.pro](https://docs.ccxt.com/docs/pro).
 
-Supported: **Binance**, **Hyperliquid**. Schemas: `trade`, `depth1` (top of book).
+Supported: **Binance**, **Hyperliquid**. Schemas: `trade`, `depth` (top of book).
 
 ## Run
 
@@ -17,7 +17,7 @@ Send JSON to the server:
 
 ```json
 {"op": "subscribe",   "exchange": "binance",     "schema": "trade",  "symbol": "BTC/USDT"}
-{"op": "subscribe",   "exchange": "hyperliquid", "schema": "depth1", "symbol": "BTC/USDC:USDC"}
+{"op": "subscribe",   "exchange": "hyperliquid", "schema": "depth", "symbol": "BTC/USDC:USDC"}
 {"op": "unsubscribe", "exchange": "binance",     "schema": "trade",  "symbol": "BTC/USDT"}
 ```
 
@@ -28,13 +28,13 @@ Symbols are ccxt unified symbols (`BTC/USDT` spot, `BTC/USDT:USDT` perp). Unknow
 ```json
 {"type": "trade",  "event_ts": 0, "recv_ts": 0, "symbol": "BTC/USDT", "exchange_code": "BINANCE",
  "px": 0.0, "qx": 0.0, "side": "buy"}
-{"type": "depth1", "event_ts": 0, "recv_ts": 0, "symbol": "BTC/USDT", "exchange_code": "BINANCE",
+{"type": "depth", "event_ts": 0, "recv_ts": 0, "symbol": "BTC/USDT", "exchange_code": "BINANCE",
  "px_bid": 0.0, "qx_bid": 0.0, "px_ask": 0.0, "qx_ask": 0.0}
 ```
 
 - Timestamps in ms. `event_ts` = exchange time, `recv_ts` = adaptor receive time.
 - `side` = aggressor side.
-- `depth1` is only sent when the top of book changes.
+- `depth` is only sent when the top of book changes.
 - Errors: `{"type": "error", "msg": "..."}`.
 
 ## Design
