@@ -1,0 +1,26 @@
+[project]
+name = "crypto-aggregator"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "rickypang0219", email = "rickypang0219@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "ccxt>=4.5.92",
+    "websockets>=17.4",
+]
+
+[project.scripts]
+crypto-aggregator = "crypto_aggregator:main"
+
+[build-system]
+requires = ["uv_build>=0.13.1,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.17.5",
+    "ty>=0.0.104",
+]

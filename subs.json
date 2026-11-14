@@ -1,0 +1,22 @@
+[
+  {
+    "exchange": "binance",
+    "schema": "trade",
+    "symbol": "BTC/USDT"
+  },
+  {
+    "exchange": "binance",
+    "schema": "depth",
+    "symbol": "BTC/USDT"
+  },
+  {
+    "exchange": "hyperliquid",
+    "schema": "trade",
+    "symbol": "BTC/USDC:USDC"
+  },
+  {
+    "exchange": "hyperliquid",
+    "schema": "depth",
+    "symbol": "BTC/USDC:USDC"
+  }
+]
